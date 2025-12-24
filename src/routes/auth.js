@@ -1,18 +1,15 @@
-// src/routes/auth.js
 import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
 const router = express.Router();
-const JWT_SECRET = "supersecret"; // later: move to .env
+const JWT_SECRET = "supersecret"; 
 
-// little debug
 router.get("/test", (req, res) => {
   res.send("Auth routes working");
 });
 
-// POST /api/auth/register
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -38,7 +35,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// POST /api/auth/login (for later)
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;

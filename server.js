@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import http from "http";
 import authRoutes from "./src/routes/auth.js";
+import postRoutes from "./src/routes/posts.js";
 import dotenv from 'dotenv';
 
 
@@ -12,7 +13,7 @@ dotenv.config();
 const app = express();
 
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 
 
