@@ -4,7 +4,6 @@ import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// Create post
 router.post("/", auth, async (req, res) => {
   try {
     const { content } = req.body;
@@ -15,7 +14,6 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-// Get all posts
 router.get("/", auth, async (req, res) => {
   try {
     const posts = await Post.find()
